@@ -15,21 +15,30 @@ public class DroneController : MonoBehaviour {
 	void FixedUpdate () {
 
 		//moving
+		//x and z section
 		if (Input.GetAxis("Horizontal") != 0f) {
-			rb.AddForce (gameObject.transform.right*15*Input.GetAxis("Horizontal"), ForceMode.Force);
+			rb.AddForce (gameObject.transform.right*30*Input.GetAxis("Horizontal"), ForceMode.Force);
 		}
 		if (Input.GetAxis("Vertical") != 0f) {
-			rb.AddForce (gameObject.transform.forward*15*Input.GetAxis("Vertical"), ForceMode.Force);
+			rb.AddForce (gameObject.transform.forward*30*Input.GetAxis("Vertical"), ForceMode.Force);
 		}
-		if (Input.GetKey("joystick button 4")) {
+
+		// y section
+		if (Input.GetKey("joystick button 4")||Input.GetKey(KeyCode.Space)) {
 			Debug.Log ("Press up");
-			rb.AddForce (gameObject.transform.up*20, ForceMode.Force);
+			rb.AddForce (gameObject.transform.up*100, ForceMode.Force);
 		}
-		if (Input.GetKey("joystick button 5")) {
+		/*if (Input.GetKey("joystick button 5")||Input.GetKey("k")) {
 			Debug.Log ("Press down");
-			rb.AddForce (gameObject.transform.up*-20,  ForceMode.Force);
-		}
+			rb.AddForce (gameObject.transform.up*-100,  ForceMode.Force);
+		}*/
+		//break section
 		if (Input.GetKeyDown("joystick button 8")) {
+			Debug.Log("move break");
+			rb.drag = 3;
+			StartCoroutine (stopMove ());
+		}
+		if (Input.GetKey("i")) {
 			Debug.Log("move break");
 			rb.drag = 3;
 			StartCoroutine (stopMove ());
@@ -39,12 +48,12 @@ public class DroneController : MonoBehaviour {
 			rb.angularDrag = 3;
 			StartCoroutine (stopRotate ());
 		}
-		if (Input.GetKeyDown ("joystick button 9")) {
+		/*if (Input.GetKeyDown ("joystick button 9")) {
 			Debug.Log ("Break all");
 			rb.angularDrag = 3;
 			rb.drag = 3;
 			StartCoroutine (stopAll ());
-		}
+		}*/
 		//camera and drone rotate
 		/*
 		float inputy = Input.GetAxis ("rotateY");
@@ -53,6 +62,17 @@ public class DroneController : MonoBehaviour {
 		if (Input.GetAxis("rotateY") != 0f) {
 			Debug.Log ("rotate");
 			rb.angularVelocity=new Vector3(0f,Input.GetAxis("rotateY")*1.5f,0f);
+		}
+		if (Input.GetKey ("j")) {
+			Debug.Log ("rotate");
+			rb.angularVelocity = new Vector3 (0f, -1.5f, 0f);
+		} else if (Input.GetKey ("l")) {
+			Debug.Log ("rotate");
+			rb.angularVelocity = new Vector3 (0f, 1.5f, 0f);
+		} else if (Input.GetKey ("k")) {
+			Debug.Log("rotate break");
+			rb.angularDrag = 3;
+			StartCoroutine (stopRotate ());
 		}
 
 	}
