@@ -229,20 +229,20 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>D:/program files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>D:/program files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>D:/program files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ <Reference Include="TextMeshPro-1.0.55.54.0b11">
+ <HintPath>D:/souce tree/DroneRaceVR/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.54.0b11.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-1.0.55.54.0b11-Editor">
  <HintPath>D:/souce tree/DroneRaceVR/Assets/TextMesh Pro/Plugins/Editor/TextMeshPro-1.0.55.54.0b11-Editor.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-1.0.55.54.0b11">
- <HintPath>D:/souce tree/DroneRaceVR/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.54.0b11.dll</HintPath>
- </Reference>
- <Reference Include="TextMeshPro-1.0.55.54.0b11">
  <HintPath>D:/souce tree/DroneRaceVR/Assets/TextMesh Pro/Plugins/Runtime DLL/TextMeshPro-1.0.55.54.0b11.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>D:/program files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>D:/program files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
