@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Drone\Scripts\Controller.cs" />
      <Compile Include="Assets\Drone\Scripts\WingSpin.cs" />
+     <Compile Include="Assets\GlitchFx\GlitchFx.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRBoundary.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCameraRig.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCommon.cs" />
@@ -89,11 +90,16 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Script\BreakDrone.cs" />
      <Compile Include="Assets\Script\CameraController.cs" />
+     <Compile Include="Assets\Script\Camswitch.cs" />
      <Compile Include="Assets\Script\DroneController.cs" />
      <Compile Include="Assets\Script\GUICode\RotateMater.cs" />
      <Compile Include="Assets\Script\GUICode\SpeedMater.cs" />
+     <Compile Include="Assets\Script\GUICode\showView.cs" />
      <Compile Include="Assets\Script\HMDTracking.cs" />
+     <Compile Include="Assets\Script\droneDamage.cs" />
+     <Compile Include="Assets\Script\gameSystem.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark02.cs" />
@@ -181,6 +187,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\GlitchFx\Shader\GlitchFx.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />

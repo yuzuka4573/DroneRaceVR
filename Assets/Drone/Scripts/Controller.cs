@@ -23,14 +23,14 @@ public class Controller : MonoBehaviour {
     }
 	void OnTriggerEnter(Collider other) {
 
-		if (other.tag == "ground") {
+		if (other.tag == "ground" ||other.tag =="building") {
 			GetComponent<WingSpin> ().isSpinning = false;
 		} 
 
 	}
 	void OnTriggerExit(Collider other) {
 
-		if (other.tag == "ground") {
+		if (other.tag == "ground" ||other.tag =="building") {
 			GetComponent<WingSpin> ().isSpinning = true;
 		} 
 
