@@ -13,7 +13,7 @@ public class Camswitch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("c")) {
+		if (Input.GetButtonDown ("changeCAM")) {
 			if (camSW) {
 				Debug.Log ("switch to FPV");
 				//switch to FPV

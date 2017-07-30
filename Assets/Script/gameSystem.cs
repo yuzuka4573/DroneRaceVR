@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class gameSystem : MonoBehaviour {
-
+	public int flagAll=26;
+	public int getFlag=0;
 	// Use this for initialization
 	void Start () {
 	
@@ -10,7 +11,13 @@ public class gameSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape))
+
+		//
+
+
+
+		//exit game 
+		if (Input.GetButtonDown ("End"))
 			Application.Quit ();
 	}
 }

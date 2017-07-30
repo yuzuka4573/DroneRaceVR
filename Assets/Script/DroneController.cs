@@ -37,26 +37,26 @@ public class DroneController : MonoBehaviour {
 			}
 
 			// y section
-			if (Input.GetKey ("joystick button 4") || Input.GetKey (KeyCode.Space)) {
+			if (Input.GetButton ("Drone_UP")) {
 				Debug.Log ("Press up");
 				rb.AddForce (gameObject.transform.up * UDval, ForceMode.Force);
 			}
 
-			if (SceneManager.GetActiveScene ().name != "Hardmode") {
+			//if (SceneManager.GetActiveScene ().name != "Hardmode") {
 
-				if (Input.GetKey ("joystick button 5") || Input.GetKey ("c")) {
+			if (Input.GetButton ("Drone_Down")) {
 					Debug.Log ("Press down");
-					rb.AddForce (gameObject.transform.up * -UDval, ForceMode.Force);
+				rb.AddForce (gameObject.transform.up * -(UDval-20), ForceMode.Force);
 				}
-			}
+		//	}
 			//break section
-			if (Input.GetKeyDown ("joystick button 8") || Input.GetKey ("i")) {
+			if (Input.GetButton ("Move_break")) {
 				Debug.Log ("move break");
 				rb.drag = 3;
 				StartCoroutine (stopMove ());
 			}
 
-			if (Input.GetKeyDown ("joystick button 9") || Input.GetKey ("k")) {
+			if (Input.GetButton ("Rotate_break")) {
 				Debug.Log ("rotate break");
 				rb.angularDrag = 3;
 				StartCoroutine (stopRotate ());
@@ -67,63 +67,69 @@ public class DroneController : MonoBehaviour {
 				Debug.Log ("rotate");
 				if (Input.GetAxis ("rotateY") < 0) {
 					if (LCRval < rotateval)
-						LCRval += 0.01f;
+						LCRval += 0.05f;
 					if (RCRval > 0)
-						RCRval -= 0.01f;
+						RCRval -= 0.05f;
 					rb.angularVelocity = new Vector3 (0f, -1 * (LCRval - RCRval), 0f);
 				} else if (Input.GetAxis ("rotateY") > 0) {
 					if (RCRval < rotateval)
-						RCRval += 0.01f;
+						RCRval += 0.05f;
 					if (LCRval > 0)
-						LCRval -= 0.01f;
+						LCRval -= 0.05f;
 					rb.angularVelocity = new Vector3 (0f, (RCRval - LCRval), 0f);
 				}
 
-			}
-			else if (Input.GetKey ("j")) {
-				Debug.Log ("rotate");
-				if (LCRval < rotateval)
-					LCRval += 0.01f;
-				if (RCRval > 0)
-					RCRval -= 0.01f;
-				rb.angularVelocity = new Vector3 (0f, -1 * (LCRval - RCRval), 0f);
-			} else if (Input.GetKey ("l")) {
-				Debug.Log ("rotate");
-				if (RCRval < rotateval)
-					RCRval += 0.01f;
+			}else if (Input.GetButton ("Keyboard_rotateLeft")||Input.GetButton ("Keyboard_rotateRight")) {
+				Debug.Log ("rotate button");
+				if (Input.GetButton ("Keyboard_rotateLeft")) {
+					if (LCRval < rotateval)
+						LCRval += 0.05f;
+					if (RCRval > 0)
+						RCRval -= 0.05f;
+					rb.angularVelocity = new Vector3 (0f, -1 * (LCRval - RCRval), 0f);
+				} else if (Input.GetButton ("Keyboard_rotateRight")) {
+					if (RCRval < rotateval)
+						RCRval += 0.05f;
+					if (LCRval > 0)
+						LCRval -= 0.05f;
+					rb.angularVelocity = new Vector3 (0f, (RCRval - LCRval), 0f);
+				}
+
+			}else {
 				if (LCRval > 0)
-					LCRval -= 0.01f;
-				rb.angularVelocity = new Vector3 (0f, (RCRval - LCRval), 0f);
-			} else {
-				if (LCRval > 0)
-					LCRval -= 0.01f;
+					LCRval -= 0.05f;
 				if (RCRval > 0)
-					RCRval -= 0.01f;
+					RCRval -= 0.05f;
 			}
+
 		}
 
 	}
 
 	private IEnumerator stopMove(){
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (0.05f);
 		rb.velocity = Vector3.zero;
 		rb.drag = 0.5F;
 		yield break;
 	}
 
 	private IEnumerator stopRotate(){
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (0.05f);
 		rb.angularVelocity = Vector3.zero;
 		rb.angularDrag = 0.5F;
+		LCRval = 0;
+		RCRval = 0;
 		yield break;
 	}
 
 	private IEnumerator stopAll(){
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (0.05f);
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 		rb.drag = 0.5F;
 		rb.angularDrag = 0.5F;
+		LCRval = 0;
+		RCRval = 0;
 		yield break;
 	}
 	public void resetPos(){
