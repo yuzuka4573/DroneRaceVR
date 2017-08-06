@@ -4,6 +4,7 @@ using System.Collections;
 public class gameSystem : MonoBehaviour {
 	public int flagAll=26;
 	public int getFlag=0;
+	public bool isControll = false;
 	// Use this for initialization
 	void Start () {
 	

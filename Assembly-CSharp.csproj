@@ -91,6 +91,9 @@
      <Compile Include="Assets\Script\GUICode\RotateMater.cs" />
      <Compile Include="Assets\Script\GUICode\SpeedMater.cs" />
      <Compile Include="Assets\Script\GUICode\TimeView.cs" />
+     <Compile Include="Assets\Script\GUICode\menu\RaceMode.cs" />
+     <Compile Include="Assets\Script\GUICode\menu\exits.cs" />
+     <Compile Include="Assets\Script\GUICode\menu\freemode.cs" />
      <Compile Include="Assets\Script\GUICode\showView.cs" />
      <Compile Include="Assets\Script\GateSpwan.cs" />
      <Compile Include="Assets\Script\GateSys.cs" />

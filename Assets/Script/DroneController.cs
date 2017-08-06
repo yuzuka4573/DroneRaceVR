@@ -11,7 +11,7 @@ public class DroneController : MonoBehaviour {
 	public float rotateval=1.5f;
 	public float LCRval = 0f;
 	public float RCRval = 0f;
-	public bool isControl = true;
+	gameSystem gs;
 	Vector3 initPos;
 	Quaternion initRot;
 	// Use this for initialization
@@ -21,11 +21,12 @@ public class DroneController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		initPos = gameObject.transform.position;
 		initRot = gameObject.transform.rotation;
+		gs = GameObject.Find ("System").GetComponent<gameSystem> ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (isControl) {
+		if (gs.isControll) {
 			//moving
 			//x and z section
 			if (Input.GetAxis ("Horizontal") != 0f) {

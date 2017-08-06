@@ -5,10 +5,12 @@ public class BreakDrone : MonoBehaviour {
 	public GameObject Dr;
 	public GlitchFx gfx;
 	public float Damval = 6f;
+	gameSystem gs;
 	// Use this for initialization
 	void Start () {
 		/*Dr = GameObject.Find ("Drone_text_edited");
 		gfx = GameObject.Find ("Main Camera").GetComponent<GlitchFx> ();*/
+		gs = GameObject.Find ("System").GetComponent<gameSystem> ();
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class BreakDrone : MonoBehaviour {
 
 	IEnumerator noise(){
 		Dr.GetComponent<Rigidbody> ().freezeRotation = false;
-		Dr.GetComponent<DroneController> ().isControl = false;
+		gs.isControll = false;
 
 		for(int c =0;c<50;c++){
 			yield return new WaitForSeconds(0.1f);
@@ -40,7 +42,7 @@ public class BreakDrone : MonoBehaviour {
 		Dr.GetComponent<DroneController> ().resetPos ();
 		yield return new WaitForSeconds(0.1f);
 		Dr.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-		Dr.GetComponent<DroneController> ().isControl = true;
+		gs.isControll = true;
 		gfx.intensity =0;
 		yield break;
 	}
